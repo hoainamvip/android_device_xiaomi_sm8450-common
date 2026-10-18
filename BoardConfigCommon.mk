@@ -211,6 +211,11 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml
 
 DEVICE_FRAMEWORK_MANIFEST_FILE += $(COMMON_PATH)/vintf/framework_manifest.xml
+# Dolby HALs must be in every SKU manifest (manifest_<sku>.xml replaces manifest.xml at runtime)
+DOLBY_VINTF_FILES := $(filter hardware/dolby/%,$(DEVICE_MANIFEST_FILE))
+DEVICE_MANIFEST_FILE := $(filter-out hardware/dolby/%,$(DEVICE_MANIFEST_FILE))
+$(foreach sku, $(call to-upper, $(DEVICE_MANIFEST_SKUS)), \
+    $(eval DEVICE_MANIFEST_$(sku)_FILES += $(DOLBY_VINTF_FILES)))
 
 # Verified Boot
 ifeq ($(VENDOR_SECURITY_PATCH),)

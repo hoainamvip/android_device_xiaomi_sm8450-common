@@ -253,6 +253,7 @@ $(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,fal
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
     init.qti.media.sh
+$(LOCAL_PATH)/media/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
 
 # Network
 PRODUCT_COPY_FILES += \

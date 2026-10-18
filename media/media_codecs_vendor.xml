@@ -1,0 +1,11 @@
++<?xml version="1.0" encoding="utf-8"?>
+
+2+
+
+3 +<MediaCodecs>
+
+4 + <Include href="
+
+media_codecs_dolby_audio.xml" />
+
+5 +</MediaCodecs>
